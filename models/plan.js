@@ -7,3 +7,5 @@ const Plan = mongoose.model("plan", {
     body: String,
     
 })
+
+module.exports = Plan

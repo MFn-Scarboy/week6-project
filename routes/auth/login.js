@@ -19,7 +19,7 @@ router.post("/login", (req, res, next) => {
         return
     }
 
-    User.findOne({ "username": theUsername})
+    User.findOne({ "username": theUsername })
     .then(user => {
         if(!user) {
             res.render("auth/login", {
@@ -30,9 +30,20 @@ router.post("/login", (req, res, next) => {
 
         bcrypt.compare(thePassword, user.password, function(err, equal) {
             if(err) {
-                res.render("auth/login", )
+                res.render("auth/login", {
+                    errorMessage: "Incorrect password"
+                })
+            }
+            if(equal) {
+                req.session.user = user
+                res.redirect("/profile")
+            } else {
+                next({ message: "Incorrect password" })
             }
         })
+    })
+    .catch(err => {
+        next(err)
     })
 })
 

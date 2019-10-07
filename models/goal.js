@@ -5,5 +5,7 @@ const Goal = mongoose.model("goal", {
     image_url: String,
     //steps: [],
     body: String,
-    
+
 })
+
+module.exports = Goal
