@@ -2,7 +2,6 @@ const express = require("express")
 const router = express.Router()
 const plan = require("../../models/plan")
 
-//needs to be restricted
 router.get("/profile", (req, res, next) => {
    let loggedInUser = req.session.user
     plan.findById(loggedInUser.plan)
