@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const User = require("../../models/user")
 const plan = require("../../models/plan")
 
 router.get("/profile", (req, res, next) => {
@@ -10,6 +11,16 @@ router.get("/profile", (req, res, next) => {
     })
     .catch((err)=>{
         console.log(err);
+    })
+})
+
+router.get("/delete", (req, res) => {
+    User.findByIdAndDelete(req.query.id)
+    .then((user) => {
+        res.redirect("/index")
+    })
+    .catch((err) => {
+        res.send(err)
     })
 })
 
