@@ -4,7 +4,6 @@ const mongoose = require("mongoose")
 const nodemailer = require("nodemailer")
 require("dotenv").config()
 
-
 router.get("/contact", (req, res, next) => {
     res.render("contact")
 })
