@@ -1,8 +1,8 @@
 const express = require("express")
 const router = express.Router()
+const User = require("../../models/user")
 const plan = require("../../models/plan")
 
-//needs to be restricted
 router.get("/profile", (req, res, next) => {
    let loggedInUser = req.session.user
     plan.findById(loggedInUser.plan)
@@ -11,6 +11,16 @@ router.get("/profile", (req, res, next) => {
     })
     .catch((err)=>{
         console.log(err);
+    })
+})
+
+router.get("/delete", (req, res) => {
+    User.findByIdAndDelete(req.query.id)
+    .then((user) => {
+        res.redirect("/index")
+    })
+    .catch((err) => {
+        res.send(err)
     })
 })
 
