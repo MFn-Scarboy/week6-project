@@ -20,7 +20,7 @@ router.post("/contact", (req, res, next) => {
         })
         let message = transporter.sendMail({
             from: `"Fitnessapp user message" <foo@example.com>`,
-            to: "jrv3rkaik@gmail.com",
+            to: "jrv3rkaik@gmail.com, neha95218@gmail.com",
             subject: `Message from: ${req.body.name} <${req.body.email}>`,
             text: `${req.body.message}`
         })
