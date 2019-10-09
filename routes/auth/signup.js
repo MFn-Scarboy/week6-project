@@ -2,14 +2,20 @@ const express    = require("express")
 const router     = express.Router()
 const bcrypt     = require("bcrypt")
 const bcryptSalt = 10
-const User       = require("../../models/user")
-
+const User = require("../../models/user");
+const Plan = require("../../models/plan");
+const mongoose = require("mongoose");
+const multer  = require('multer');
+const upload = multer({ dest: `${__dirname}/../../public/uploads/` });
 
 router.get("/signup", (req, res, next) => {
-    res.render('signup')
+    Plan.find({})
+        .then((plans)=>{
+            res.render('signup', {plans})
+        })
 })
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup", upload.single("image_url"), (req, res, next) => {
     const email = req.body.email
     const password = req.body.password
     const salt     = bcrypt.genSaltSync(bcryptSalt)
@@ -17,7 +23,7 @@ router.post("/signup", (req, res, next) => {
 
     if(email === "" || password === "") {
         res.render("signup", {
-            errorMessage: "Indicate a email and a password to sign up"
+            errorMessage: "Indicate a valid email and a password to sign up"
         })
         return
     }
@@ -34,12 +40,12 @@ router.post("/signup", (req, res, next) => {
                 fullname: req.body.fullname,
                 password: hashPass,
                 email,
-                age: req.body.age,
                 height: req.body.height,
+                age: req.body.age,
                 weight: req.body.weight,
                 number: req.body.number,
-                goal: req.body.goal,
-                image_url: req.body.image_url
+                plan: mongoose.Types.ObjectId(req.body.planId),
+                image_url: req.file.filename
             })
             .then(() => {
                 res.redirect("/auth/login")

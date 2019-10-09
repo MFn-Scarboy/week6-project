@@ -1,8 +1,10 @@
 @import url("./contact.css");
 
 body {
+    background-color: black;
+    color: white;
     margin: 0;
-    padding: 0;
+    padding: 0
 }
 
 * {
@@ -23,7 +25,7 @@ i {
     position: absolute;
     right: 10px;
     top: 10px;
-    color: white;
+    z-index: 1;
 }
 
 #nav-dropdown {
@@ -49,76 +51,129 @@ i {
     color: white;
 }
 
-#form {
-    display: none;
-}
-
 #myVideo {
     position: fixed;
     right: 0;
     height: 100vh;
 }
 
+.app-name {
+    visibility: hidden;
+}
+
+.card {
+    width: 100vw;
+    height: 50vh;
+    color: black !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-top {
+    height: 40vh;
+    width: 100vw;
+}
+
+#user-img {
+    height: 50px;
+    width: 50px;
+    margin-top: 0px;
+}
+
+.plan-container {
+    z-index: -1;
+}
+
+.members{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.members figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media only screen and (min-width: 1080px){
-    body {
-        background-color: black;
-        color: white;
-    }
+   .card {
+       color: black !important;
+       width: 30%;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       margin: 22px;
+       padding: 20px;
+   }
+
+   #canvas-container {
+       width: 70vw;
+       max-height: 30vh;
+       position: absolute;
+       bottom: 5%;
+       z-index: 300;
+   }
+
+   .plan-container {
+       display: flex;
+       flex-wrap: wrap;
+   }
+
+   .card-img-top {
+       height: 200px;
+       width: 200px;
+   }
     
     i {
         visibility: hidden;
     }
 
-    #signup-btn {
-        position: absolute;
-        top: 60%;
-        right: 12%;
-    }
-  
     #myVideo {
         position: fixed;
-        margin-top: 25px;
-        margin-bottom: 25px;
-        margin-left: 25px;
-        left: 0;
-        width: 70vw;
-        height: auto;
-    }   
-
-    .btn-wrapper {
-        visibility: hidden;
+        right: 0;
+        width: 100vw;
     }
 
-    #form {
-        display: block;
+    .app-name {
         position: absolute;
-        top: 30%;
-        right: 5%;
-        border: 2px solid white;
-        border-radius: 15px;
+        bottom: 2%;
+        left: 35%;
+        visibility: visible;
+        line-height: 50px;
+        font-size: 35px;
+        z-index: 200;
     }
-
+  
     #nav-dropdown {
         display: block;
+        width: 100vw;
+        height: 50px;
         background-color: inherit;
         position: absolute;
-        right: 45%;
-        text-align: center
+        right: 0;
+        left: 0;
+        z-index: 1;
     }
 
     #nav-dropdown li {
         display: inline-block;
-        margin-left: 20x;
+        padding-left: 20x;
     }
 
     #nav-dropdown a {
-        color: white;
+        color: green !important;
+        font-size: 22px;
     }
 
     .about-us {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 30px;
         padding: 20px;
     }
 
@@ -137,5 +192,69 @@ i {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .profile-wrapper {
+        position: absolute;
+        top: 15%;
+        left: 89%;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #user-img {
+        height: 50px;
+        width: 50px;
+        margin-top: 30px;
+    }
+
+    .profile-wrapper figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        width: 350px;
+        left: 82%;
+        top: 0%;
+        z-index: 250
+}
+
+    .profile-info {
+        display: flex;
+        margin: 150px auto;
+    }
+
+    .activity-log {
+        width: 35% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .selected-plan {
+        width: 35% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .activity-wrapper {
+        position: absolute;
+        z-index: 100;
+        margin-top: 70px;
+    }
+
+    .activity-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-elem {
+        display: flex;
     }
 }

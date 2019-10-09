@@ -1,0 +1,42 @@
+[
+    {
+        "food": "Rice",
+        "calories": 129
+    },
+    {
+        "food": "Lentils",
+        "calories": 116
+    },
+    {
+        "food": "Broccoli",
+        "calories": 31
+    },
+    {
+        "food": "Kale",
+        "calories": 49
+    },
+    {
+        "food": "Quinoa",
+        "calories": 120
+    },
+    {
+        "food": "White Bread",
+        "calories": 219
+    },
+    {
+        "food": "Brown Bread",
+        "calories": 217
+    },
+    {
+        "food": "Vermicelli",
+        "calories": 157
+    },
+    {
+        "food": "Chicken",
+        "calories": 165
+    },
+    {
+        "food": "Pasta",
+        "calories": 352
+    }
+]
