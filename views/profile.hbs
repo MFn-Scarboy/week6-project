@@ -1,0 +1,25 @@
+<div class="profile-wrapper">
+    <figure>
+        <img src="/uploads/{{loggedInUser.image_url}}" alt="your-img" id="user-img">
+        <figcaption>Hey! {{loggedInUser.fullname}}</figcaption>
+    </figure>
+    <a class="btn btn-light text-dark" href="/auth/logout" id="logout-btn">Logout</a><br>
+    <a class="btn btn-light text-dark" href="/auth/update/{{loggedInUser._id}}" id="update-btn">Update Profile</a>
+</div>
+
+<div class="profile-info">
+<div class="card selected-plan">
+      <img class="card-img-top" src="{{plan.image_url}}" alt=""></img>
+      <div class="card-body">
+        <h5 class="card-title">{{plan.title}}</h5>
+        <p class="card-text">{{plan.body}}</p>
+      </div>
+      <h4 class="text-info">Your Selected Plan</h4>
+</div>
+<div class="card activity-log">
+    <div class="card-body">
+      <h3 class="text-info">My Activity Log</h3>
+      <a class="btn btn-primary" href="/auth/activity">Go!</a>
+    </div>  
+</div>
+</div>
