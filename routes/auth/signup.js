@@ -2,40 +2,53 @@ const express    = require("express")
 const router     = express.Router()
 const bcrypt     = require("bcrypt")
 const bcryptSalt = 10
-const User       = require("../models/user")
-
+const User = require("../../models/user");
+const Plan = require("../../models/plan");
+const mongoose = require("mongoose");
+const multer  = require('multer');
+const upload = multer({ dest: `${__dirname}/../../public/uploads/` });
 
 router.get("/signup", (req, res, next) => {
-    res.render('auth/signup')
+    Plan.find({})
+        .then((plans)=>{
+            res.render('signup', {plans})
+        })
 })
 
-router.post("/auth/signup", (req, res, next) => {
-    const username = req.body.username
+router.post("/signup", upload.single("image_url"), (req, res, next) => {
+    const email = req.body.email
     const password = req.body.password
     const salt     = bcrypt.genSaltSync(bcryptSalt)
     const hashPass = bcrypt.hashSync(password, salt)
 
-    if(username === "" || password === "") {
-        res.render("auth/signup", {
-            errorMessage: "Indicate a username and a password to sign up"
+    if(email === "" || password === "") {
+        res.render("signup", {
+            errorMessage: "Indicate a valid email and a password to sign up"
         })
         return
     }
 
-    User.findOne({username})
+    User.findOne({email})
     .then(user => {
         if(user !== null) {
-            res.render("auth/signup", {
-                errorMessage: "The username already exists!"
+            res.render("signup", {
+                errorMessage: "The email already exists!"
               })
               return
             }
             User.create({
-                username,
-                password: hashPass
+                fullname: req.body.fullname,
+                password: hashPass,
+                email,
+                height: req.body.height,
+                age: req.body.age,
+                weight: req.body.weight,
+                number: req.body.number,
+                plan: mongoose.Types.ObjectId(req.body.planId),
+                image_url: req.file.filename
             })
             .then(() => {
-                res.redirect("/")
+                res.redirect("/auth/login")
             })
         })
     .catch(error => {
