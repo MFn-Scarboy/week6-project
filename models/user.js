@@ -1,17 +1,15 @@
 const mongoose = require("mongoose")
 
 const User = mongoose.model("user", {
-    firstName: String,
-    lastName: String,
-    userName: String,
+    fullname: String,
     email: String,
     password: String,
     age: Number,
-    phoneNumber: Number,
+    number: Number,
     weight: Number,
     height: Number,
     age: Number,
-    goal: [],
+    goal: "", //{type: ObjectId, ref: "goals"},
     image_url: String,
 })
 

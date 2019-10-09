@@ -2,41 +2,42 @@ const express    = require("express")
 const router     = express.Router()
 const bcrypt     = require("bcrypt")
 const bcryptSalt = 10
-const User       = require("../models/user")
+const User       = require("../../models/user")
+const session = require("express-session")
 
 router.get("/login", (req, res, next) => {
-    res.render("auth/login")
+    res.render("login")
 })
 
 router.post("/login", (req, res, next) => {
-    const theUsername = req.body.username
+    const email = req.body.email
     const thePassword = req.body.password
 
-    if(theUsername === "" || thePassword === "") {
-        res.render("auth/login", {
-            errorMessage: "Please enter both, username and password to sign up."
+    if(email === "" || thePassword === "") {
+        res.render("login", {
+            errorMessage: "Please enter both, email and password to sign up."
         })
         return
     }
 
-    User.findOne({ "username": theUsername })
+    User.findOne({ "email": email })
     .then(user => {
         if(!user) {
-            res.render("auth/login", {
-                errorMessage: "This username does not exist"
+            res.render("login", {
+                errorMessage: "This email does not exist"
             })
             return
         }
 
         bcrypt.compare(thePassword, user.password, function(err, equal) {
             if(err) {
-                res.render("auth/login", {
+                res.render("login", {
                     errorMessage: "Incorrect password"
                 })
             }
             if(equal) {
                 req.session.user = user
-                res.redirect("/profile")
+                res.render("profile")
             } else {
                 next({ message: "Incorrect password" })
             }
