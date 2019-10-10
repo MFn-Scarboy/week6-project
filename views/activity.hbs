@@ -25,6 +25,8 @@
     </div>
         {{/each}}
     {{/if}}
+
+    {{#data user.activity}}
     <form action="/auth/activity" method="POST" class="activity-form">
         <div class="form-elem">
             <div>
@@ -54,11 +56,12 @@
 
             <div>
                 <label for="qty-consumed">Quantity Consumed (in grams)</label>
-                <input type="number" name="qty-one">        
+                <input type="number" name="qty-one" class="extra">        
             </div>
     </div>
     <button type="submit" class="btn btn-primary w-25">Submit</button>
 </form>
+{{/data}}
 </div>
 <div id="canvas-container">
     <canvas id="myChart"></canvas>

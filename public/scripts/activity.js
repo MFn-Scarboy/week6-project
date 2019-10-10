@@ -30,7 +30,7 @@ if(userInput.length > 0){
                             options: {
                                 scales: {
                                     barThickness: 50,
-                                    barPercentage: 0.5
+                                    barPercentage: 0.2
                                 }
                             }
                         });
