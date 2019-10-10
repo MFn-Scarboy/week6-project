@@ -17,17 +17,31 @@ router.post("/update/:id", upload.single("image_url"), (req, res, next) => {
     const salt     = bcrypt.genSaltSync(bcryptSalt)
     const hashPass = bcrypt.hashSync(password, salt)
 
-    let updatedUserProfile = {
-        fullname: req.body.fullname,
-        password: hashPass,
-        email: req.body.email,
-        height: req.body.height,
-        age: req.body.age,
-        weight: req.body.weight,
-        number: req.body.number,
-        image_url: req.file.filename
-    }
+    let updatedUserProfile = {};
 
+    if(!password){
+        updatedUserProfile = {
+            fullname: req.body.fullname,
+            email: req.body.email,
+            height: req.body.height,
+            age: req.body.age,
+            weight: req.body.weight,
+            number: req.body.number,
+            image_url: req.file.filename
+        }
+    } else {
+        updatedUserProfile = {
+            fullname: req.body.fullname,
+            password: hashPass,
+            email: req.body.email,
+            height: req.body.height,
+            age: req.body.age,
+            weight: req.body.weight,
+            number: req.body.number,
+            image_url: req.file.filename
+        }
+    } 
+    
     User.findByIdAndUpdate(req.params.id, {$set: updatedUserProfile})
         .then(()=>{
             res.redirect("/auth/login")
