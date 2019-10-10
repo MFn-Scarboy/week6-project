@@ -21,6 +21,16 @@ app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 hbs.registerPartials(__dirname + "/views/partials")
+
+hbs.registerHelper("data", function(list, options){
+  if(list === undefined){
+    return options.fn(this);
+  }
+  else if(list.length < 10){
+    return options.fn(this);
+  }
+})
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());

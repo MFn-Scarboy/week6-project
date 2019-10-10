@@ -47,8 +47,9 @@ router.post("/signup", upload.single("image_url"), (req, res, next) => {
                 plan: mongoose.Types.ObjectId(req.body.planId),
                 image_url: req.file.filename
             })
-            .then(() => {
-                res.redirect("/auth/login")
+            .then((user) => {
+                req.session.user = user
+                res.redirect("/auth/profile")
             })
         })
     .catch(error => {
