@@ -7,7 +7,7 @@ h1, h3, div, button {
     text-align: center;
 }
 
-input, textarea {
+.input-styling {
     width: 60vw;
     height: 5vh;
     padding: 1%;
