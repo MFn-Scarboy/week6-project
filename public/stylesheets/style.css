@@ -110,17 +110,48 @@ i {
        padding: 20px;
    }
 
+   #signup-form, #login-form, #update-form{
+       margin: 100px auto 0;
+       display: block;
+       padding: 20px 8px 0;
+       border: 2px solid white;
+       border-radius: 10px;
+       width: 30vw;
+   }
+
+   .form-control {
+       width: 28vw;
+       margin: 10px 5px;
+   }
+
+   #create-btn, #login-btn, #update {
+       position: relative;
+       left: 30%;
+       margin: 50px 0;
+   }
+
+   .form-group {
+       margin-bottom: -20px;
+   }
+
+   #recommendations-btn {
+        position: absolute;
+        top: 40%;
+        left: 75%;
+   }
+
    #canvas-container {
-       width: 70vw;
-       max-height: 15vh;
+       width: 60vw;
+       max-height: 10vh;
        position: absolute;
        bottom: 5%;
        z-index: 300;
-       right: 20%;
+       right: 23%;
    }
 
    .plan-container {
        display: flex;
+       margin: 50px 0;
        flex-wrap: wrap;
    }
 
@@ -142,14 +173,24 @@ i {
     .app-name {
         position: absolute;
         bottom: 2%;
-        left: 35%;
+        left: 30%;
         visibility: visible;
-        line-height: 50px;
-        font-size: 35px;
+        line-height: 20px;
         z-index: 200;
     }
+
+    #color-change, .lead, #plan-title{
+        animation: coloreffect 2s infinite;
+    }
+    
+    @keyframes coloreffect {
+        0% {color: red};
+        25% {color: #bf55ec};
+        50% {color: white};
+        100% {color: #bf55ec};
+    }
   
-    #nav-dropdown {
+    /* #nav-dropdown {
         display: block;
         width: 100vw;
         height: 50px;
@@ -168,23 +209,25 @@ i {
     #nav-dropdown a {
         color: green !important;
         font-size: 22px;
-    }
+    } */
 
     .about-us {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 30px;
-        padding: 20px;
+        margin-top: 60px;
+        padding: 20px 20px 0px;
     }
 
     .team {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly 
     }
 
     .members{
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
     }
 
@@ -197,19 +240,24 @@ i {
 
     .profile-wrapper {
         position: absolute;
-        top: 15%;
-        left: 89%;
-        padding: 8px;
         display: flex;
+        z-index: 1100;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
     }
 
     #user-img {
-        height: 50px;
-        width: 50px;
-        margin-top: 30px;
+        height: 55px;
+        width: 55px;
+    }
+
+    .profile-wrapper div {
+        display: inline-block;
+        position: fixed;
+        top: 10px;
+        width: 400px;
+        left: 0;
     }
 
     .profile-wrapper figure {
@@ -218,26 +266,22 @@ i {
         align-items: center;
         position: fixed;
         width: 350px;
-        left: 82%;
+        left: 85%;
         top: 0%;
-        z-index: 250
-}
-
-    .profile-info {
-        display: flex;
-        margin: 150px auto;
+        z-index: 1100;
     }
 
-    .activity-log {
-        width: 35% !important;
+    .profile-info {
+        position: absolute;
+        top: 20%;
+        left: 35%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
     }
 
     .selected-plan {
-        width: 35% !important;
+        width: 80% !important;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -254,15 +298,20 @@ i {
     .activity-form {
         display: flex;
         flex-direction: column;
+        margin: 0 auto;
     }
 
     .form-elem {
         display: flex;
-        justify-content: flex-start;
-        align-content: space-between
+        justify-content: space-between;
+        align-content: space-between;
+        border: 1px solid white;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        padding: 3px;
     }
 
     .user-activity, .extra {
-        width: 15vw !important;
+        width: 5vw !important;
     }
 }

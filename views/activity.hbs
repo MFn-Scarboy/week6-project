@@ -25,9 +25,9 @@
     </div>
         {{/each}}
     {{/if}}
-
+    
     {{#data user.activity}}
-    <form action="/auth/activity" method="POST" class="activity-form">
+    <form action="/auth/activity" method="POST" class="activity-form mx-auto">
         <div class="form-elem">
             <div>
             <label for="day">Select Day</label>
@@ -63,6 +63,9 @@
 </form>
 {{/data}}
 </div>
+
+<a href="/auth/recommendations" class="btn btn-primary" id="recommendations-btn">Recommendations</a>
+
 <div id="canvas-container">
     <canvas id="myChart"></canvas>
 </div>

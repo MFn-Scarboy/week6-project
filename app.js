@@ -1,10 +1,11 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require("mongoose");
 const hbs = require('hbs');
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require("express-session");
-const port = 3000;
 
 mongoose
   .connect('mongodb://localhost/fitnessapp', {useNewUrlParser: true})
@@ -42,6 +43,15 @@ app.use(session({
     cookie: { maxAge: 24 * 60 * 60 * 1000},
   }));
 
+app.use((req,res,next)=>{
+  if(req.session.user){
+    app.locals.user = req.session.user
+  } else if(app.locals.user) {
+    delete app.locals.user
+  }
+  next();
+})
+
 const homeRoute = require("./routes/index");
 app.use("/", homeRoute);
 
@@ -60,13 +70,16 @@ app.use("/auth", loginRoute);
 const signupRoute = require("./routes/auth/signup");
 app.use("/auth", signupRoute);
 
-const logoutRoute = require("./routes/auth/logout");
-app.use("/auth", logoutRoute);
-
 app.use((req,res,next)=> {
     if(!req.session.user) res.redirect("/auth/login")
     else next()
   })
+
+const logoutRoute = require("./routes/auth/logout");
+app.use("/auth", logoutRoute);
+
+const deleteRoute = require("./routes/auth/delete");
+app.use("/auth", deleteRoute);
 
 const profileRoute = require("./routes/auth/profile");
 app.use("/auth", profileRoute);
@@ -77,4 +90,4 @@ app.use("/auth", updateRoute);
 const activityRoute = require("./routes/auth/activity");
 app.use("/auth", activityRoute);
 
-app.listen(3000, () => console.log(`App running on port ${port}`));
+app.listen(process.env.PORT, () => console.log(`App running on port ${process.env.PORT}`));
