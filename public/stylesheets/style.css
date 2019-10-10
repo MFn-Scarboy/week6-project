@@ -112,10 +112,11 @@ i {
 
    #canvas-container {
        width: 70vw;
-       max-height: 30vh;
+       max-height: 15vh;
        position: absolute;
        bottom: 5%;
        z-index: 300;
+       right: 20%;
    }
 
    .plan-container {
@@ -245,8 +246,9 @@ i {
 
     .activity-wrapper {
         position: absolute;
-        z-index: 100;
+        height: auto;
         margin-top: 70px;
+        /* visibility: hidden; */
     }
 
     .activity-form {
@@ -256,5 +258,11 @@ i {
 
     .form-elem {
         display: flex;
+        justify-content: flex-start;
+        align-content: space-between
+    }
+
+    .user-activity, .extra {
+        width: 15vw !important;
     }
 }
