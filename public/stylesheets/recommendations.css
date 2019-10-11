@@ -1,0 +1,19 @@
+.ex-div {
+    width: 45%;
+    padding-top: 4vw;
+    padding-left: 4vw;
+    text-align: left;
+}
+
+.diet-div {
+    width: 45%;
+    float: right;
+    padding-top: 4vw;
+    padding-right: 4vw;
+    text-align: left;
+    
+}
+
+ul li {
+    padding-top: 3vh;
+}
