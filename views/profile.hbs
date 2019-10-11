@@ -4,7 +4,8 @@
         <figcaption>Hey! {{loggedInUser.fullname}}</figcaption>
     </figure>
     <a class="btn btn-light text-dark" href="/auth/logout" id="logout-btn">Logout</a><br>
-    <a class="btn btn-light text-dark" href="/auth/update/{{loggedInUser._id}}" id="update-btn">Update Profile</a>
+    <a class="btn btn-light text-dark" href="/auth/update/{{loggedInUser._id}}" id="update-btn">Update Profile</a><br>
+    <a class="btn btn-light text-dark" href="/auth/delete?id={{loggedInUser._id}}" id="delete-btn">Delete account</a>
 </div>
 
 <div class="profile-info">

@@ -15,6 +15,11 @@ if(userInput.length > 0){
             verticalAxis.push((userInput[i].value * graphCalories[i].value) / 100);
         }
 
+        let sumOfCalories = 0;
+        for(i =0; i < verticalAxis.length; i++){
+                
+        }
+
         var ctx = document.getElementById('myChart').getContext('2d');
                         var chart = new Chart(ctx, {
                             type: 'bar',    

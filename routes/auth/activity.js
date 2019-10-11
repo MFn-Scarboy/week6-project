@@ -13,7 +13,7 @@ router.get("/activity", (req,res,next)=>{
                 } else {
                     res.render("activity", {foods})
                 }
-    })
+            })
     })
 })
 
