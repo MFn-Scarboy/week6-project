@@ -85,6 +85,9 @@ app.use((req,res,next)=> {
     else next()
   })
 
+const recommendationsRoute = require("./routes/auth/recommendations");
+app.use("/auth", recommendationsRoute);
+
 const logoutRoute = require("./routes/auth/logout");
 app.use("/auth", logoutRoute);
 
