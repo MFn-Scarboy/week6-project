@@ -1,11 +1,11 @@
-require("dotenv").config()
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require("mongoose");
 const hbs = require('hbs');
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require("express-session");
-
 
 mongoose
   .connect(process.env.DB, {useNewUrlParser: true})
@@ -17,6 +17,10 @@ mongoose
   });
 
 const app = express();
+
+app.locals.config = {
+  host: process.env.host
+}
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
@@ -61,6 +65,15 @@ app.use(session({
     cookie: { maxAge: 24 * 60 * 60 * 1000},
   }));
 
+app.use((req,res,next)=>{
+  if(req.session.user){
+    app.locals.user = req.session.user
+  } else if(app.locals.user) {
+    delete app.locals.user
+  }
+  next();
+})
+
 const homeRoute = require("./routes/index");
 app.use("/", homeRoute);
 
@@ -79,13 +92,22 @@ app.use("/auth", loginRoute);
 const signupRoute = require("./routes/auth/signup");
 app.use("/auth", signupRoute);
 
-const logoutRoute = require("./routes/auth/logout");
-app.use("/auth", logoutRoute);
+const sendRoute = require("./routes/auth/send-reset");
+app.use("/auth", sendRoute)
+
+const resetRoute = require("./routes/auth/reset-password");
+app.use("/auth", resetRoute)
 
 app.use((req,res,next)=> {
     if(!req.session.user) res.redirect("/auth/login")
     else next()
   })
+
+const logoutRoute = require("./routes/auth/logout");
+app.use("/auth", logoutRoute);
+
+const deleteRoute = require("./routes/auth/delete");
+app.use("/auth", deleteRoute);
 
 const profileRoute = require("./routes/auth/profile");
 app.use("/auth", profileRoute);

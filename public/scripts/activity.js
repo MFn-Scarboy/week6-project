@@ -22,20 +22,29 @@ if(userInput.length > 0){
 
         var ctx = document.getElementById('myChart').getContext('2d');
                         var chart = new Chart(ctx, {
-                            type: 'bar',    
+                            type: 'bar',
                             data: {
                                 labels: horizontalAxis,
                                 datasets: [{
                                     label: 'My First dataset',
-                                    backgroundColor: 'rgb(255, 99, 132)',
-                                    borderColor: 'rgb(255, 99, 132)',
+                                    backgroundColor: "lightblue",
+                                    hoverBackgroundColor: 'rgb(255, 99, 132)',
+                                    borderColor: 'rgb(255, 255, 255)',
+                                    hoverBorderColor: "black",
+                                    borderWidth: 2,
                                     data: verticalAxis
                                 }]
                             },
                             options: {
                                 scales: {
-                                    barThickness: 50,
+                                    barThickness: 30,
                                     barPercentage: 0.2
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'My Calory Consumption',
+                                    fontSize: 22,
+                                    fontColor: "#ffffff"
                                 }
                             }
                         });

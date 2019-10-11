@@ -11,6 +11,32 @@ body {
     box-sizing: border-box;
 }
 
+#signup-form, #login-form, #update-form, #send-form{
+    margin: 150px auto 0px;
+    display: block;
+    padding: 20px 8px 0;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 60vw;
+}
+
+.form-control {
+       width: 55vw;
+       margin: 10px 5px;
+   }
+
+#create-btn, #login-btn, #update, #send-btn {
+       position: relative;
+       left: 30%;
+       margin: 50px 0;
+       width: 150px;
+   }
+
+.forgot-btn {
+    position: relative;
+    left: 40%;
+}
+
 .btn-wrapper {
     position: absolute;
     left: 50%;
@@ -21,36 +47,6 @@ body {
     margin-top: -100px;
 }
 
-i {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    z-index: 1;
-}
-
-#nav-dropdown {
-    z-index: 100;
-    position: absolute;
-    text-align: center;
-    right: 30px;
-    top: 10px;
-    list-style-type: none;
-    background-color: lightslategray;
-    padding: 0;
-    margin: 0;
-    border-radius: 15px;
-    width: 20%;
-    display: none;
-}
-
-#nav-dropdown li {
-    padding: 8px;
-}
-
-#nav-dropdown li a {
-    color: white;
-}
-
 #myVideo {
     position: fixed;
     right: 0;
@@ -59,6 +55,25 @@ i {
 
 .app-name {
     visibility: hidden;
+}
+
+.about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+    padding: 20px 20px 0px;
+}
+
+article {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.about-us img {
+    max-width: 100%;
+    height: auto;
 }
 
 .card {
@@ -82,10 +97,6 @@ i {
     margin-top: 0px;
 }
 
-.plan-container {
-    z-index: -1;
-}
-
 .members{
     display: flex;
     flex-direction: column;
@@ -96,6 +107,99 @@ i {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.plan-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.profile-wrapper {
+    position: absolute;
+    display: flex;
+    z-index: 1100;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#user-img {
+    height: 55px;
+    width: 55px;
+}
+
+.profile-wrapper div {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; 
+    top: 15px;
+    left: 50px;
+}
+
+.profile-wrapper a {
+    width: 140px;
+}
+
+.profile-wrapper figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    width: 350px;
+    left: 85%;
+    top: 0%;
+    z-index: 1100;
+}
+
+.profile-info {
+    position: absolute;
+    top: 20%;
+    left: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.selected-plan {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.activity-wrapper {
+    position: absolute;
+    height: auto;
+    margin: 200px auto 0;
+}
+
+.canvas-container {
+    float: none;
+    position: absolute;
+    bottom: 0;
+    right: 23%;
+}
+
+.profile-wrapper figure {
+    display: none;
+}
+
+#color-change, .lead, #plan-title{
+    animation: coloreffect 2s infinite;
+}
+
+@keyframes coloreffect {
+    0% {color: red};
+    25% {color: #bf55ec};
+    50% {color: white};
+    100% {color: #bf55ec};
 }
 
 @media only screen and (min-width: 1080px){
@@ -110,29 +214,68 @@ i {
        padding: 20px;
    }
 
+   .navbar-nav {
+       width: 100%;
+       justify-content: center;
+   }
+
+   #signup-form, #login-form, #update-form, #send-form, #reset-form{
+       margin: 100px auto 0;
+       display: block;
+       padding: 20px 8px 0;
+       border: 2px solid white;
+       border-radius: 10px;
+       width: 30vw;
+   }
+
+   .form-control {
+       width: 28vw;
+       margin: 10px 5px;
+   }
+
+   #create-btn, #login-btn, #update, #send-btn, #reset-btn {
+       position: relative;
+       left: 30%;
+       margin: 50px 0;
+       width: 150px;
+   }
+
+   .forgot-btn {
+       position: relative;
+       left: 45%;
+   }
+
+   .form-group {
+       margin-bottom: -20px;
+   }
+
+   #recommendations-btn {
+        position: fixed;
+        top: 1%;
+        z-index: 1500;
+        left: 80%;
+   }
+
    #canvas-container {
-       width: 70vw;
-       max-height: 15vh;
-       position: absolute;
-       bottom: 5%;
+       width: 45vw;
+       max-height: 30vh;
+       float: right;
+       margin-right: 50px;
+       margin-top: 170px;
        z-index: 300;
-       right: 20%;
    }
 
    .plan-container {
        display: flex;
+       margin: 50px 0;
        flex-wrap: wrap;
    }
 
    .card-img-top {
        height: 200px;
-       width: 200px;
+       max-width: 200px;
    }
     
-    i {
-        visibility: hidden;
-    }
-
     #myVideo {
         position: fixed;
         right: 0;
@@ -142,49 +285,40 @@ i {
     .app-name {
         position: absolute;
         bottom: 2%;
-        left: 35%;
+        left: 30%;
         visibility: visible;
-        line-height: 50px;
-        font-size: 35px;
+        line-height: 20px;
         z-index: 200;
     }
+
+    #color-change, .lead, #plan-title{
+        animation: coloreffect 2s infinite;
+    }
+    
+    @keyframes coloreffect {
+        0% {color: red};
+        25% {color: #bf55ec};
+        50% {color: white};
+        100% {color: #bf55ec};
+    }
   
-    #nav-dropdown {
-        display: block;
-        width: 100vw;
-        height: 50px;
-        background-color: inherit;
-        position: absolute;
-        right: 0;
-        left: 0;
-        z-index: 1;
-    }
-
-    #nav-dropdown li {
-        display: inline-block;
-        padding-left: 20x;
-    }
-
-    #nav-dropdown a {
-        color: green !important;
-        font-size: 22px;
-    }
-
     .about-us {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 30px;
-        padding: 20px;
+        margin-top: 60px;
+        padding: 20px 20px 0px;
     }
 
     .team {
         display: flex;
         flex-direction: column;
+        justify-content: space-evenly 
     }
 
     .members{
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
     }
 
@@ -197,19 +331,24 @@ i {
 
     .profile-wrapper {
         position: absolute;
-        top: 15%;
-        left: 89%;
-        padding: 8px;
         display: flex;
+        z-index: 1100;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
     }
 
     #user-img {
-        height: 50px;
-        width: 50px;
-        margin-top: 30px;
+        height: 55px;
+        width: 55px;
+    }
+
+    .profile-wrapper div {
+        display: inline-block;
+        position: fixed;
+        top: 10px;
+        width: 500px;
+        left: 0;
     }
 
     .profile-wrapper figure {
@@ -218,26 +357,22 @@ i {
         align-items: center;
         position: fixed;
         width: 350px;
-        left: 82%;
+        left: 85%;
         top: 0%;
-        z-index: 250
-}
-
-    .profile-info {
-        display: flex;
-        margin: 150px auto;
+        z-index: 1100;
     }
 
-    .activity-log {
-        width: 35% !important;
+    .profile-info {
+        position: absolute;
+        top: 20%;
+        left: 35%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
     }
 
     .selected-plan {
-        width: 35% !important;
+        width: 80% !important;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -247,22 +382,26 @@ i {
     .activity-wrapper {
         position: absolute;
         height: auto;
-        margin-top: 70px;
-        /* visibility: hidden; */
+        margin: 100px 15px 0;
     }
 
     .activity-form {
         display: flex;
         flex-direction: column;
+        margin: 0 auto;
     }
 
     .form-elem {
         display: flex;
-        justify-content: flex-start;
-        align-content: space-between
+        justify-content: space-between;
+        align-content: space-between;
+        border: 1px solid white;
+        border-radius: 5px;
+        margin: -10px auto 20px;
+        padding: 3px;
     }
 
     .user-activity, .extra {
-        width: 15vw !important;
+        width: 5vw !important;
     }
 }
