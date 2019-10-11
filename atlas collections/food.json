@@ -1,0 +1,10 @@
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e5d"},"food":"Vermicelli","calories":{"$numberInt":"157"}}
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e5e"},"food":"Rice","calories":{"$numberInt":"129"}}
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e5f"},"food":"Chicken","calories":{"$numberInt":"165"}}
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e60"},"food":"Pasta","calories":{"$numberInt":"352"}}
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e61"},"food":"Lentils","calories":{"$numberInt":"116"}}
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e62"},"food":"White Bread","calories":{"$numberInt":"219"}}
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e63"},"food":"Broccoli","calories":{"$numberInt":"31"}}
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e64"},"food":"Kale","calories":{"$numberInt":"49"}}
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e65"},"food":"Quinoa","calories":{"$numberInt":"120"}}
+{"_id":{"$oid":"5d9df719ebe36f012dcf4e66"},"food":"Brown Bread","calories":{"$numberInt":"217"}}

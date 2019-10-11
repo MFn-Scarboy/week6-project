@@ -5,6 +5,7 @@ const plan = require("../../models/plan")
 
 router.get("/profile", (req, res, next) => {
    let loggedInUser = req.session.user
+   console.log(req.session.user)
     plan.findById(loggedInUser.plan)
     .then((plan)=>{
         res.render("profile", {loggedInUser, plan});
@@ -17,7 +18,8 @@ router.get("/profile", (req, res, next) => {
 router.get("/delete", (req, res) => {
     User.findByIdAndDelete(req.query.id)
     .then((user) => {
-        res.redirect("/index")
+        req.session.destroy()
+        res.redirect("/")
     })
     .catch((err) => {
         res.send(err)
