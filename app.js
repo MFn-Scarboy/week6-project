@@ -18,6 +18,10 @@ mongoose
 
 const app = express();
 
+app.locals.config = {
+  host: process.env.host
+}
+
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
@@ -69,6 +73,12 @@ app.use("/auth", loginRoute);
 
 const signupRoute = require("./routes/auth/signup");
 app.use("/auth", signupRoute);
+
+const sendRoute = require("./routes/auth/send-reset");
+app.use("/auth", sendRoute)
+
+const resetRoute = require("./routes/auth/reset-password");
+app.use("/auth", resetRoute)
 
 app.use((req,res,next)=> {
     if(!req.session.user) res.redirect("/auth/login")

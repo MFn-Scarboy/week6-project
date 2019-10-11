@@ -17,37 +17,13 @@
       placeholder="********" class="form-control" required><br>
     </div>
 
-    {{!-- <div class="form-group">
-    <label for="tel">Contact Number</label>
-    <input type="tel" name="number"
-      placeholder="Your Contact Number" class="form-control" required><br>
-    </div>
-
-    <div class="form-group">
-    <label for="age">Age</label>
-    <input type="number" name="age"
-      placeholder="Your Age" class="form-control" required><br>
-    </div>
-
-    <div class="form-group">
-    <label for="weight">Weight</label>
-    <input type="number" name="weight"
-      placeholder="Your weight" class="form-control" required><br>
-    </div>
-
-    <div class="form-group">
-    <label for="height">Height</label>
-    <input type="number" name="height"
-      placeholder="Your height" class="form-control" required><br>
-    </div> --}}
-
     <div class="form-group">
       <label for="select-list">Select Your Plan:</label>
       <select class="form-control" id="planId" name="planId">
         {{#each plans}}
           <option value="{{_id}}">{{this.title}}</option>
         {{/each}}
-      </select>
+      </select><br>
     </div>
 
     <div class="form-group">
@@ -57,6 +33,6 @@
 
     <button type="submit" class="btn btn-primary" id="create-btn">Create account</button>
 </form>
-    {{#if errorMessage}}
-        {{errorMessage}}
-    {{/if}}
+{{#if errorMessage}}
+          {{errorMessage}}
+{{/if}}

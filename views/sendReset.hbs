@@ -1,0 +1,20 @@
+<form action="{{{config.host}}}/auth/send-reset" method="POST" id="send-form">
+    <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" name="email"
+      placeholder="Your email" class="form-control" required><br>
+    </div>
+    <p id="display" class="text-center text-warning"></p>
+   <button type="submit" class="btn btn-primary" id="send-btn">Send Reset Link</button>
+  </form>
+  <script>
+      $("#send-btn").click(function(e){
+          e.preventDefault();
+          let email = $(".form-control").val()
+          $.post('/auth/send-reset', {email})
+          .then((response)=>{
+              $("#display").html(response)
+          })
+          .catch(err => console.log(err))
+      })
+  </script>
