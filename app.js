@@ -99,4 +99,4 @@ app.use("/auth", activityRoute);
 const recommendationsRoute = require("./routes/auth/recommendations");
 app.use("/auth", recommendationsRoute);
 
-app.listen(process.env.port, () => console.log(`App running on port ${process.env.port}`));
+app.listen(process.env.PORT, () => console.log(`App running on port ${process.env.PORT}`));
