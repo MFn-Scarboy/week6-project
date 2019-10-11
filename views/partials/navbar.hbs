@@ -6,7 +6,7 @@
     <li><a href="/contact">Contact</a></li>
 </ul> --}}
 
-<nav class="navbar navbar-expand-lg bg-danger navbar-light fixed-top justify-content-center">
+{{!-- <nav class="navbar navbar-expand-lg bg-danger navbar-light fixed-top justify-content-center">
   <ul class="navbar-nav">
     <li class="nav-item active">
       <a class="nav-link text-white" href="/">Home</a>
@@ -24,20 +24,33 @@
       <a class="nav-link text-white" href="/contact">Contact</a>
     </li>
   </ul>
+</nav> --}}
+
+<nav class="navbar navbar-expand-lg bg-danger navbar-dark fixed-top justify-content-end">
+  
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/about">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/plans">Plans</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/auth/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
 </nav>
-
-{{#if user}}
-<div class="profile-wrapper">
-    <figure>
-        <img src="/uploads/{{loggedInUser.image_url}}" alt="your-img" id="user-img">
-        <figcaption>Hey! {{loggedInUser.fullname}}</figcaption>
-    </figure>
-    <div>
-      <a class="btn btn-light text-dark" href="/auth/logout" id="logout-btn">Logout</a>
-      <a class="btn btn-light text-dark" href="/auth/update/{{loggedInUser._id}}" id="update-btn">Update Profile</a>
-      <a class="btn btn-primary text-light" href="/auth/delete?id={{loggedInUser._id}}" id="delete-btn">Delete Account</a>
-    </div>
-</div>
-{{/if}}
-
-<i class="fa fa-bars" aria-hidden="true" id="bar"></i>

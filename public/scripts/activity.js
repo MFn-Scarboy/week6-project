@@ -17,7 +17,7 @@ if(userInput.length > 0){
 
         var ctx = document.getElementById('myChart').getContext('2d');
                         var chart = new Chart(ctx, {
-                            type: 'bar',    
+                            type: 'bar',
                             data: {
                                 labels: horizontalAxis,
                                 datasets: [{
