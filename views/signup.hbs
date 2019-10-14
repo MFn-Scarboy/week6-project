@@ -33,6 +33,9 @@
 
     <button type="submit" class="btn btn-primary" id="create-btn">Create account</button>
 </form>
-{{#if errorMessage}}
-          {{errorMessage}}
-{{/if}}
+
+<div class="err-div">
+  {{#if errorMessage}}
+            {{errorMessage}}
+  {{/if}}
+</div>

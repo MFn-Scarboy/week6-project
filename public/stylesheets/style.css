@@ -1,4 +1,5 @@
 @import url("./contact.css");
+@import url("./recommendations.css");
 
 body {
     background-color: black;
@@ -291,7 +292,7 @@ article {
         z-index: 200;
     }
 
-    #color-change, .lead, #plan-title{
+    #color-change, .lead, #plan-title, .caption {
         animation: coloreffect 2s infinite;
     }
     
@@ -403,5 +404,11 @@ article {
 
     .user-activity, .extra {
         width: 5vw !important;
+    }
+
+    .err-div {
+        color: red;
+        margin-top: 2vh;
+        margin-left: 1%;
     }
 }

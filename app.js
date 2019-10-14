@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const session = require("express-session");
 
 mongoose
-  .connect('mongodb://localhost/fitnessapp', {useNewUrlParser: true})
+  .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -33,6 +33,24 @@ hbs.registerHelper("data", function(list, options){
   }
   else if(list.length < 10){
     return options.fn(this);
+  }
+})
+
+hbs.registerHelper("ifCalories1", function(avgCalories, number, options) {
+  if(avgCalories < number) {
+    return options.fn(this)
+  }
+})
+
+hbs.registerHelper("ifCalories2", function(avgCalories, number, number2, options) {
+  if(avgCalories >= number && avgCalories < number2) {
+    return options.fn(this)
+  }
+})
+
+hbs.registerHelper("ifCalories3", function(avgCalories, number, options) {
+  if(avgCalories > number) {
+    return options.fn(this)
   }
 })
 
@@ -102,5 +120,8 @@ app.use("/auth", updateRoute);
 
 const activityRoute = require("./routes/auth/activity");
 app.use("/auth", activityRoute);
+
+const recommendationsRoute = require("./routes/auth/recommendations");
+app.use("/auth", recommendationsRoute);
 
 app.listen(process.env.PORT, () => console.log(`App running on port ${process.env.PORT}`));

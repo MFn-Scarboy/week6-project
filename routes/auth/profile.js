@@ -17,7 +17,8 @@ router.get("/profile", (req, res, next) => {
 router.get("/delete", (req, res) => {
     User.findByIdAndDelete(req.query.id)
     .then((user) => {
-        res.redirect("/index")
+        req.session.destroy()
+        res.redirect("/")
     })
     .catch((err) => {
         res.send(err)
